@@ -1,12 +1,21 @@
 <div data-role="page" id="loginPage" data-dom-cache="true">
 	<div data-role="content">	
 		<form action="{{ path('login_check') }}" method="post">
-		    <label for="username">Username:</label>
-		    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-		
-		    <label for="password">Password:</label>
-		    <input type="password" id="password" name="_password" />
-		
+			<div data-role="fieldcontain">
+		    	<label for="username">Benutzername:</label>
+		    	<input type="text" id="username" name="_username" value="{{ last_username }}" />
+			</div>
+			<div data-role="fieldcontain">
+		    	<label for="password">Kennwort:</label>
+		    	<input type="password" id="password" name="_password" />
+		    </div>
+		    <div data-role="fieldcontain">
+			    <label for="remember">Angemeldet bleiben:</label>
+				<select name="remember" id="remember" data-role="slider">
+					<option value="0">nein</option>
+					<option value="1">ja</option>
+				</select> 
+			</div>
 		    <button type="button" id="loginButton">login</button>
 		</form>
 	</div>
