@@ -1,0 +1,18 @@
+<div data-role="page"> 
+	<div data-role="header">
+		<a href="{{ path('settings') }}" data-icon="arrow-l" data-direction="reverse">Einst.</a>
+		<h1>Lager</h1>
+		<a href="{{ path('storage_new') }}" data-icon="plus">anlegen</a>
+	</div>
+	<div data-role="content">
+		<ul data-role="listview">
+			{% for entity in entities %}
+			<li>
+				<a href="{{ path('storage_show', { 'id': entity.id }) }}">
+					{{ entity.name }}
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

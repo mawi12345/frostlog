@@ -16,11 +16,15 @@ framework:
     default_locale:  %locale%
     trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     session:         ~
+    translator: { fallback: de }
 
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'MawiFrostlogBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:

@@ -1,0 +1,14 @@
+<div data-role="page"> 
+	<div data-role="header">
+		<a href="{{ path('storage') }}" data-icon="arrow-l" data-direction="reverse">Produkte</a>
+		<h1>Produkt anlegen</h1>
+	</div>
+	<div data-role="content">
+		<form action="{{ path('storage_create') }}" method="post" {{ form_enctype(form) }}>
+		    {{ form_widget(form) }}
+		    <p>
+		        <button type="submit" data-direction="reverse">anlegen</button>
+		    </p>
+		</form>
+	</div>
+</div>

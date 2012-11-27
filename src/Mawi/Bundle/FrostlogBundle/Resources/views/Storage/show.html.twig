@@ -1,0 +1,17 @@
+<div data-role="page"> 
+	<div data-role="header">
+		<a href="{{ path('storage') }}" data-icon="arrow-l" data-direction="reverse">Lager</a>
+		<h1>{{ entity.name }}</h1>
+		<a href="{{ path('storage_edit', {'id': entity.id}) }}" data-icon="gear">bearbeiten</a>
+	</div>
+	<div data-role="content">
+	    <ul data-role="listview">
+	        <li>
+	            ID: {{ entity.id }}
+	        </li>
+	        <li>
+	            Name: {{ entity.name }}
+	        </li>
+	    </ul>
+	</div>
+</div>

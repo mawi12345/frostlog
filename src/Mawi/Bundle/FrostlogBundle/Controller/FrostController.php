@@ -14,7 +14,13 @@ class FrostController extends Controller
      */
     public function frostAction()
     {
-        return array();
+    	$em = $this->getDoctrine()->getManager();
+    	
+    	$entities = $em->getRepository('MawiFrostlogBundle:Stock')->findAll();
+    	
+    	return array(
+    			'entities' => $entities,
+    	);
     }
     
 }

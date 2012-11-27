@@ -1,0 +1,14 @@
+<div data-role="page"> 
+	<div data-role="header">
+		<a href="{{ path('home') }}" data-icon="arrow-l" data-direction="reverse">abbrechen</a>
+		<h1>Einlagern</h1>
+	</div>
+	<div data-role="content">
+		<form action="{{ path('stock_create') }}" method="post" {{ form_enctype(form) }}>
+		    {{ form_widget(form) }}
+		    <p>
+		        <button type="submit" data-direction="reverse">einlagern</button>
+		    </p>
+		</form>
+	</div>
+</div>
