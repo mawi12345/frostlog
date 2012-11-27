@@ -1,0 +1,34 @@
+<div data-role="page"> 
+	<div data-role="header">
+		<a href="{{ path('home') }}" data-icon="arrow-l" data-direction="reverse">Home</a>
+		<h1>Einstellungen</h1>
+	</div>
+	<div data-role="content">
+		<ul data-role="listview">
+			<li>
+				<a href="{{ path('user') }}">
+					<img src="{{ asset('images/icons/111-user.png') }}" alt="lock" class="ui-li-icon gicon"> 
+					Benutzer
+				</a>
+			</li>
+			<li>
+				<a href="{{ path('product') }}">
+					<img src="{{ asset('images/icons/48-fork-and-knife.png') }}" alt="lock" class="ui-li-icon gicon"> 
+					Produkte
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="{{ asset('images/icons/33-cabinet.png') }}" alt="lock" class="ui-li-icon gicon"> 
+					Lager
+				</a>
+			</li>
+			<li>
+				<a href="#" id="logout">
+					<img src="{{ asset('images/icons/54-lock.png') }}" alt="lock" class="ui-li-icon gicon"> 
+					abmelden
+				</a>
+			</li>
+		</ul>
+	</div>
+</div> 

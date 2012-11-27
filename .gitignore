@@ -1,0 +1,23 @@
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+web/css/*
+web/js/*
+
+# Configuration files
+app/config/parameters.yml
+
+# Mac
+.DS_Store
+
+# eclipse
+.settings/*
+
+doc/*
+*~

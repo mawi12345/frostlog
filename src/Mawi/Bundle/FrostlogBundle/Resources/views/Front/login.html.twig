@@ -1,0 +1,13 @@
+<div data-role="page" id="loginPage" data-dom-cache="true">
+	<div data-role="content">	
+		<form action="{{ path('login_check') }}" method="post">
+		    <label for="username">Username:</label>
+		    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+		
+		    <label for="password">Password:</label>
+		    <input type="password" id="password" name="_password" />
+		
+		    <button type="button" id="loginButton">login</button>
+		</form>
+	</div>
+</div>

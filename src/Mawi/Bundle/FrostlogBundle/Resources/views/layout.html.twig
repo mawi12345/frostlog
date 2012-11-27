@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Frostlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="description" content="">
+    <meta name="author" content="Martin Wind">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+
+    <!-- Le styles -->
+    
+    {% stylesheets
+		'@jquery_mobile_css'
+		'@MawiFrostlogBundle/Resources/public/css/base.css'
+		output='css/base.css'
+		filter='cssrewrite, ?uglifycss'
+	%}<link rel="stylesheet" href="{{ asset_url }}">
+	{% endstylesheets %}
+	
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+  	{% include 'MawiFrostlogBundle:Front:loading.html.twig' %}
+  	{% render 'MawiFrostlogBundle:Front:loginPage' %}
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript">window.baseurl = {{ path('front') }};</script>
+    {% javascripts 
+    	'@jquery'
+    	'@MawiFrostlogBundle/Resources/public/js/mobileinit.js'
+    	'@jquery_mobile_js'
+    	'@MawiFrostlogBundle/Resources/public/js/login.js'
+		output='js/base.js'
+		filter='?uglifyjs'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	{% block javascript %}
+	{% endblock %}
+  </body>
+</html>

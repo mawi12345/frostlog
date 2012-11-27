@@ -1,0 +1,20 @@
+<div data-role="page"> 
+	<div data-role="header">
+		<a href="{{ path('product') }}" data-icon="arrow-l" data-direction="reverse">Produkte</a>
+		<h1>{{ entity.name }}</h1>
+		<a href="{{ path('product_edit', {'id': entity.id}) }}" data-icon="gear">bearbeiten</a>
+	</div>
+	<div data-role="content">
+	    <ul data-role="listview">
+	        <li>
+	            ID: {{ entity.id }}
+	        </li>
+	        <li>
+	            Name: {{ entity.name }}
+	        </li>
+	        <li>
+	            <p>{{ entity.description }}</p>
+	        </li>
+	    </ul>
+	</div>
+</div>

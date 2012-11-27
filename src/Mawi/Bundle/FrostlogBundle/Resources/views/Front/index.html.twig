@@ -1,0 +1,21 @@
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Frostlog</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<ul data-role="listview" data-divider-theme="c">
+			{% for item in range(0,10) %}
+			<li>
+				<a href="#" data-transition="flow">
+					{{ item}}
+					<p style="display: inline;"> {{ item }}</p>
+				</a>
+			</li>
+			{% endfor %}
+			<li data-role="list-divider" data-divider-theme>{% trans %}Ressources{% endtrans %}</li>
+			<li><a href="res/dispo">dispo</a></li>
+		</ul>	
+	</div><!-- /content -->
+</div><!-- /page -->
