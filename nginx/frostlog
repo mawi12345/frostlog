@@ -19,7 +19,7 @@ server {
 	root /var/www/frostlog/web;
 
 	# Make site accessible from http://localhost/
-	server_name _;
+	server_name frostlog.cloud.dfa.at;
 
 	location / {
 		index app.php;
