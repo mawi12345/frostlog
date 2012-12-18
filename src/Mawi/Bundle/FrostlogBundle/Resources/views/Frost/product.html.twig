@@ -1,0 +1,23 @@
+<div data-role="page"> 
+    <div data-role="header">
+		<a href="{{ path('home') }}" data-icon="arrow-l" data-direction="reverse">Home</a>
+		<h1>{{ product }}</h1>
+	</div>
+	<div data-role="content">
+        <ul data-role="listview">
+            {% for item in entities %}
+            {% if not item.departure %}
+			<li><a href="{{ path('stock_show', {id: item.id}) }}">
+                {{ item.age }} Tage
+                <p style="display: inline;">{{ item.storage }}</p>
+                {% if item.quantity > 1 %}
+                <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">
+                    {{ item.quantity }} Port.
+                </span>
+                {% endif %}
+            </a></li>
+            {% endif %}
+            {% endfor %}
+		</ul>
+	</div>
+</div> 
