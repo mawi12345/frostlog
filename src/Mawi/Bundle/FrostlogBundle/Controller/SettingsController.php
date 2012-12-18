@@ -19,14 +19,5 @@ class SettingsController extends Controller
 	{
 		return array();
 	}
-	
-    /**
-     * @Route("/user", name="user")
-     * @Template()
-     */
-    public function userAction()
-    {
-        return array();
-    }
     
 }

@@ -1,0 +1,14 @@
+<div data-role="page"> 
+    <div data-role="header">
+		<a href="{{ path('settings') }}" data-icon="arrow-l" data-direction="reverse">Einst.</a>
+		<h1>Benutzer</h1>
+		<a href="{{ path('user_new') }}" data-icon="plus" class="ui-btn-right">anlegen</a>
+	</div>
+	<div data-role="content">
+		<ul data-role="listview">
+            {% for entity in entities %}
+			<li><a href="{{ path('user_edit', { 'id': entity.id }) }}">{{ entity.username }}</a></li>
+            {% endfor %}
+		</ul>
+	</div>
+</div>

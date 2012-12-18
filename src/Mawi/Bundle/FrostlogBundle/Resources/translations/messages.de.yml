@@ -4,3 +4,6 @@ Product: Produkt
 Storage: Lagerplatz
 Description: Beschreibung
 Count: Anzahl
+Password1: Kennwort
+Password2: Überprüfung
+Username: Benutzername

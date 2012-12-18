@@ -1,0 +1,15 @@
+<div data-role="page"> 
+    <div data-role="header">
+		<a href="{{ path('user') }}" data-icon="arrow-l" data-direction="reverse">abbrechen</a>
+		<h1>{{ entity.username }}</h1>
+	</div>
+	<div data-role="content">
+		<form action="{{ path('user_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+		    <input type="hidden" name="_method" value="PUT" />
+		    {{ form_widget(edit_form) }}
+		    <p>
+		        <button type="submit" data-direction="reverse">speichern</button>
+		    </p>
+		</form>
+	</div>
+</div>

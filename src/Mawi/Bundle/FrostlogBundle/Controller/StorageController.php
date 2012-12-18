@@ -122,7 +122,6 @@ class StorageController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Storage entity.');
         }
-
         $editForm = $this->createForm(new StorageType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
