@@ -188,4 +188,24 @@ class Stock
     {
         return $this->storage;
     }
+    
+    /**
+     * Get age in days
+     *
+     * @return integer
+     */
+    public function getAge()
+    {
+        $now = new \DateTime();
+        $interval = $now->diff($this->getArrival());
+        return $interval->format('%a');
+    }
+    
+    public function copy(\Mawi\Bundle\FrostlogBundle\Entity\Stock $stock)
+    {
+        $this->setStorage($stock->getStorage());
+        $this->setProduct($stock->getProduct());
+        $this->setQuantity($stock->getQuantity());
+        $this->setArrival($stock->getArrival());
+    }
 }

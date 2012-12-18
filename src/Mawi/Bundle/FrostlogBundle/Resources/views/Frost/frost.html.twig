@@ -5,5 +5,14 @@
 		<a href="{{ path('stock_new') }}" data-icon="plus" class="ui-btn-left">&nbsp;</a>
 	</div>
 	<div data-role="content">
+        <ul data-role="listview">
+            {% for item in entities %}
+			<li><a href="{{ path('productstock', {id: item.product.id }) }}">
+                {{ item.product }} 
+                <p style="display: inline;"> {{ item.age }} Tage</p>
+                <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">{{ item.count }} Stk / {{ item.quantity }} Prot.</span>
+            </a></li>
+            {% endfor %}
+		</ul>
 	</div>
 </div> 

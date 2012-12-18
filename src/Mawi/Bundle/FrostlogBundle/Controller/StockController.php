@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mawi\Bundle\FrostlogBundle\Entity\Stock;
 use Mawi\Bundle\FrostlogBundle\Form\StockType;
+use Mawi\Bundle\FrostlogBundle\Form\StockNewType;
 
 /**
  * Stock controller.
@@ -28,17 +29,21 @@ class StockController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Stock();
-        $form = $this->createForm(new StockType(), $entity);
+        $form = $this->createForm(new StockNewType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
+            $count = $form->get('count')->getData();
+            for ($i=0; $i<$count; $i++) {
+                $stock = new Stock();
+                $stock->copy($entity);
+                $em->persist($stock);
+            }
             $em->flush();
             
             return $this->redirect($this->generateUrl('home'));
-         
-            return $this->redirect($this->generateUrl('stock_show', array('id' => $entity->getId())));
+            //return $this->redirect($this->generateUrl('stock_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -57,7 +62,7 @@ class StockController extends Controller
     public function newAction()
     {
         $entity = new Stock();
-        $form   = $this->createForm(new StockType(), $entity);
+        $form   = $this->createForm(new StockNewType(), $entity);
 
         return array(
             'entity' => $entity,
@@ -115,6 +120,29 @@ class StockController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
+    }
+    
+    /**
+     * unloads an existing Stock entity.
+     *
+     * @Route("/unload/{id}", name="stock_unload")
+     * @Method("GET")
+     */
+    public function unloadAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MawiFrostlogBundle:Stock')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Stock entity.');
+        }
+        
+        $entity->setDeparture(new \DateTime());
+        $em->persist($entity);
+        $em->flush();
+        
+        return $this->redirect($this->generateUrl('productstock', array('id' => $entity->getProduct()->getId())));
     }
 
     /**
@@ -175,7 +203,7 @@ class StockController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('stock'));
+        return $this->redirect($this->generateUrl('home'));
     }
 
     /**

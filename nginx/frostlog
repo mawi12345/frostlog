@@ -16,7 +16,7 @@ server {
 	
 	error_log /var/log/nginx/frostlog.error.log info;
 
-	root /var/www/frostlog/web;
+	root /home/mawi/workspace/frostlog/web;
 
 	# Make site accessible from http://localhost/
 	server_name frostlog.cloud.dfa.at;

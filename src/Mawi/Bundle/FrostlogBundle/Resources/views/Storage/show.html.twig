@@ -5,13 +5,6 @@
 		<a href="{{ path('storage_edit', {'id': entity.id}) }}" data-icon="gear">bearbeiten</a>
 	</div>
 	<div data-role="content">
-	    <ul data-role="listview">
-	        <li>
-	            ID: {{ entity.id }}
-	        </li>
-	        <li>
-	            Name: {{ entity.name }}
-	        </li>
-	    </ul>
+	    <p>{{ entity.name }}</p>
 	</div>
 </div>

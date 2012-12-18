@@ -3,6 +3,7 @@
 namespace Mawi\Bundle\FrostlogBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use \Mawi\Bundle\FrostlogBundle\Entity\StockGroup;
 
 /**
  * StockRepository
@@ -12,4 +13,27 @@ use Doctrine\ORM\EntityRepository;
  */
 class StockRepository extends EntityRepository
 {
+    public function findStockGroups()
+    {
+        $em = $this->getEntityManager();
+        $query = $em
+            ->createQuery('
+                SELECT COUNT(s.id) as gc, SUM(s.quantity) as gq, MIN(s.arrival) as ga, p.id as gp FROM MawiFrostlogBundle:Stock s
+                INNER JOIN s.product p
+                WHERE s.departure IS NULL
+                GROUP BY p.id'
+            );
+        $groups = $query->getResult();
+        $r = array();
+        foreach ($groups as $group) {
+            $stockGroup = new StockGroup();
+            $stockGroup->setQuantity($group['gq']);
+            $stockGroup->setCount($group['gc']);
+            $stockGroup->setArrival(new \DateTime($group['ga']));
+            $product = $em->getRepository('MawiFrostlogBundle:Product')->find($group['gp']);
+            $stockGroup->setProduct($product);
+            $r[] = $stockGroup;
+        }
+        return $r;
+    }
 }

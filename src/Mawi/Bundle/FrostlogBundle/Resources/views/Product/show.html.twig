@@ -5,16 +5,7 @@
 		<a href="{{ path('product_edit', {'id': entity.id}) }}" data-icon="gear">bearbeiten</a>
 	</div>
 	<div data-role="content">
-	    <ul data-role="listview">
-	        <li>
-	            ID: {{ entity.id }}
-	        </li>
-	        <li>
-	            Name: {{ entity.name }}
-	        </li>
-	        <li>
-	            <p>{{ entity.description }}</p>
-	        </li>
-	    </ul>
+        <p>{{ entity.name }}</p>
+        <p>{{ entity.description }}</p>
 	</div>
 </div>

@@ -53,7 +53,8 @@ class StorageController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('storage_show', array('id' => $entity->getId())));
+            //return $this->redirect($this->generateUrl('storage_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('storage'));
         }
 
         return array(
@@ -157,7 +158,8 @@ class StorageController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('storage_show', array('id' => $id)));
+            //return $this->redirect($this->generateUrl('storage_show', array('id' => $id)));
+            return $this->redirect($this->generateUrl('storage'));
         }
 
         return array(
